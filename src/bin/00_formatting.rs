@@ -34,4 +34,10 @@ fn main() {
     println!("Binaary 11: {:#b}", 11);
     println!("Hexadecimal 12: {:#x}", 12);
 
+    // notice how we did not use the variable inside the placeholder
+    // if you want to use the varaible inside the placeholder like this {variable_name} and also use the formatter argument
+    // the argument must come after the variabel
+    let ten = 10;
+    println!("Octal Form of 10: {ten:o}");
+
 }
