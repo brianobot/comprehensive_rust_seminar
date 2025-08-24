@@ -8,7 +8,7 @@ fn main() {
     let _ones: [i32; 5] = [1, 1, 1, 1, 1]; // [T; N]
     // because of this, two arrays with different N and the same T are two different types
 
-    let mut a = [1, 2, 3, 3, 4];
+    let mut _a = [1, 2, 3, 3, 4];
     // a[6] = 0; // this would cause a compilation error, because a value is assigned outside the bounds of the array
 
     // println!("a: {:?}", a);
