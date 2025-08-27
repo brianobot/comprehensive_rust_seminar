@@ -12,7 +12,5 @@ fn main() {
     // a[6] = 0; // this would cause a compilation error, because a value is assigned outside the bounds of the array
 
     // println!("a: {:?}", a);
-    
     // arrays are not heap allocated, their size is known and they go on the stack
-
 }
