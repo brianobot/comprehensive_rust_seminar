@@ -10,7 +10,7 @@ fn main() {
     // example
     // &a[0..n] == &a[..n]
     // &a[2..a.len()] == &a[2..]
-    
+
     // NOTE: there is a difference between a reference to an Array and a slice of an array
     let arr = [0; 20];
     let _ref_arr = &arr; // this is a reference to an array of 10 items

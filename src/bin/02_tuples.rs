@@ -1,4 +1,3 @@
-
 fn main() {
     let t = (7, false);
     dbg!(t.0);
@@ -8,5 +7,5 @@ fn main() {
     // fields of a tuple can be access with a dot and the index of the value
     // () the empty tuple is a special case call the unit type and represent the absense of a value
     // functions without any return values implicitly return the ()
-    return ()
+    return ();
 }

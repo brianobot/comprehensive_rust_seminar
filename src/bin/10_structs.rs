@@ -1,24 +1,21 @@
-
-// this is an example of a named struct, similar to struct in C and C++ 
+// this is an example of a named struct, similar to struct in C and C++
 // and similar to classes in Python
 struct Person {
     name: String,
-    age: u8
+    age: u8,
 }
 
 fn describe_person(person: &Person) {
     println!("Name is {0}! {0} is {1} years old", person.name, person.age);
 }
 
-
 struct Point(i32, i32);
 
-
 fn main() {
-    // the struct is a template for creating objects 
+    // the struct is a template for creating objects
     let first_person = Person {
         name: String::from("Brian David Obot"),
-        age: 25
+        age: 25,
     };
 
     describe_person(&first_person);
@@ -53,4 +50,7 @@ fn main() {
     #[allow(unused)]
     struct SemiColon;
     // this is common for types that implement some behavior but have no data
+
+    let size_of_i32 = size_of::<i32>();
+    println!("Size of I32 = {}", size_of_i32);
 }

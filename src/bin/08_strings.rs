@@ -1,3 +1,5 @@
+#[allow(unused)]
+
 fn main() {
     // &str is a slice of UTF-8 encoded bytes similar to &[u8]
     // String is an owned Buffer of UTF-8 encoded bytes similar to Vec<T>
@@ -12,5 +14,4 @@ fn main() {
 
     let c = &[99, 98];
     println!("{:?}", c);
-
 }

@@ -3,7 +3,7 @@ fn main() {
     // here the format string first filled the first place {1} with the value @ index 1 which is 2
     //  then for the second placeholder {} it takes the first item in the iterators of arguments which is 1
     // then for the third, it uses positional check again like in the first and gets the item at the oth index which is 1
-    // for the forth, it takes the next item in the iterator of argument, which is 2, 
+    // for the forth, it takes the next item in the iterator of argument, which is 2,
     // this means that if we provide more arguments that the string consumes, it would fail
     // this samples would fail
     // println!("{}{}{}", 1, 2, 3, 4);
@@ -39,5 +39,4 @@ fn main() {
     // the argument must come after the variabel
     let ten = 10;
     println!("Octal Form of 10: {ten:o}");
-
 }

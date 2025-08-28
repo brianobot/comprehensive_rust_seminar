@@ -1,5 +1,3 @@
-
-
 fn main() {
     // rust supports pattern matching and destructuring like so
     let tuple = (1, 2, 3);

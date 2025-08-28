@@ -1,4 +1,3 @@
-
 #[derive(Debug)]
 struct Queue {
     older: Vec<i32>,
@@ -19,9 +18,11 @@ impl Queue {
     }
 }
 
-
 fn main() {
-    let mut queue = Queue { older: vec![], younger: vec![] };
+    let mut queue = Queue {
+        older: vec![],
+        younger: vec![],
+    };
 
     queue.push(32);
     queue.push(62);
