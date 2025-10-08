@@ -2,7 +2,7 @@ use std::cmp::Ordering;
 
 // TODO: implement the `min` function used in the tests.
 fn min<T: Ord>(a: T, b: T) -> T {
-    if a >= b { b } else { a }
+    if a > b { b } else { a }
 }
 
 #[test]
@@ -24,5 +24,6 @@ fn strings() {
 }
 
 fn main() {
-
+    let one = min(1, 3);
+    assert_eq!(one, 1);
 }
