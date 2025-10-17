@@ -57,7 +57,9 @@ fn main() {
     // this lines still works here because the i32 type implements the Copy trait
     // and was not move but just copy so it previous variable in the main scope was still valid
     
-
+    // Closure traits
+    // Fn are functions/closures that neither consumes nor mutates capture values
+    // FnMut might mutate captured values 
 }
 
 
