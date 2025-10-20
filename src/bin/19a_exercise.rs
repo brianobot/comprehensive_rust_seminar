@@ -27,7 +27,10 @@ impl Logger for VerbosityFilter {
 }
 
 fn main() {
-    let logger = VerbosityFilter { max_verbosity: 3, inner: StderrLogger };
+    let logger = VerbosityFilter {
+        max_verbosity: 3,
+        inner: StderrLogger,
+    };
     logger.log(5, "FYI");
     logger.log(2, "Uhoh");
 }

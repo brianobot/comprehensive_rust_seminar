@@ -4,8 +4,7 @@ fn pick<T>(cond: bool, left: T, right: T) -> T {
     if cond { left } else { right }
 }
 
-
-// this examples shows how the simple generic code above 
+// this examples shows how the simple generic code above
 // reduces duplication of code to be implementated for each type that the function needs to work
 fn pick_i32(cond: bool, left: i32, right: i32) -> i32 {
     if cond { left } else { right }
@@ -18,7 +17,7 @@ fn pick_char(cond: bool, left: char, right: char) -> char {
 fn main() {
     // generics allow implementations to be asbtracted over the data structure used
     // when the pick function is eventually called, rust actually generates a concrete function
-    // that operates the type used in the call, this way you get exactly the same results as if you 
+    // that operates the type used in the call, this way you get exactly the same results as if you
     // had hardcoded the function for that type
 
     // when working with generic you often want to restrict the types to be used in place of those generics
@@ -37,14 +36,14 @@ fn main() {
     // trait bounds can also be expressed with the where clause
 
     fn duplicate_version_2<T>(a: T) -> (T, T)
-    where 
-        T: Clone 
+    where
+        T: Clone,
     {
         (a.clone(), a.clone())
     }
     // notice that the where clause is between the return type and the start of the function body braces
     // this where clause declutter the function definition
-    // 
+    //
     pub trait Logger {
         /// Log a message at the given verbosity level.
         fn log(&self, verbosity: u8, message: &str);
@@ -84,12 +83,11 @@ fn main() {
         (x + 1, x - 1)
     }
 
-
     let many = add_42_millions(102u8);
     println!("Many: {:?}", many);
 
     let pair = pair_of(32);
-    println!("pair: {:?}",  pair);
+    println!("pair: {:?}", pair);
     dbg!(pair);
 
     // dyn Trait
@@ -99,10 +97,7 @@ fn main() {
     // this type must be a type that implements a particular trait like in the case of the generic
     // but the type pointed to must be behind some kind of indirection
 
-
     fn dynamic(pet: &dyn Pet) {
         println!("Hello, who are you? {}", pet.talk());
     }
-
-
 }

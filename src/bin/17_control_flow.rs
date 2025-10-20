@@ -9,7 +9,7 @@ fn main() {
     // this does not support match guard like the match statement does
 
     // just like the if let, the while let, continously test a value against a pattern and runs it block
-    // if the matches 
+    // if the matches
 
     // note that the line below always matches since it's an irrefutable pattern (variable assignment in this case)
     #[allow(irrefutable_let_patterns)]
@@ -29,5 +29,4 @@ fn main() {
 
     // the while let can not be used as as expression cause it's possible that the block is not even enterred the first
     // time if the value does not match from the get go, and there is no fall back else block like seen above
-
 }

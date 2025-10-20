@@ -1,3 +1,5 @@
+use std::io::{BufRead, BufReader};
+
 fn main() {
     // comparison traits
     // PartialEq and Eq
@@ -9,15 +11,12 @@ fn main() {
     #[allow(dead_code)]
     struct Key {
         id: u32,
-        metadata: Option<String>
+        metadata: Option<String>,
     }
 
     impl Key {
-        fn new(id: u32) -> Self  {
-            Self {
-                id,
-                metadata: None
-            }
+        fn new(id: u32) -> Self {
+            Self { id, metadata: None }
         }
     }
 
@@ -28,10 +27,7 @@ fn main() {
     }
 
     // for a type to implement Eq it has to inherit the PartialEq trait
-    impl Eq for Key {
-
-    }
-
+    impl Eq for Key {}
 
     let my_key = Key::new(23);
     let other_key = Key::new(345);
@@ -61,8 +57,14 @@ fn main() {
         }
     }
 
-    let my_citation = Citation { author: String::from("Brian"), year: 2025 };
-    let enstein_citation = Citation { author: String::from("Enstein"), year: 1940 };
+    let my_citation = Citation {
+        author: String::from("Brian"),
+        year: 2025,
+    };
+    let enstein_citation = Citation {
+        author: String::from("Enstein"),
+        year: 1940,
+    };
 
     let is_newer = enstein_citation > my_citation;
     println!("Is Newer: {is_newer}");
@@ -71,6 +73,54 @@ fn main() {
     // this returns a Ordering type, unlike the PartialOrd which returns the Option<Ordering>
     // When comparing references to things, the references are not compared, but the actual things being pointed to
 
+    // Operator overloading can be implemented with the std::ops module
 
+    struct Point {
+        x: i32,
+        y: i32,
+    }
 
+    impl std::ops::Add for Point {
+        type Output = Self;
+
+        fn add(self, rhs: Self) -> Self::Output {
+            Point {
+                x: self.x + rhs.x,
+                y: self.y + rhs.y,
+            }
+        }
+    }
+
+    let not_5 = !5;
+    println!("{not_5}");
+
+    // From trait is used to faciliate loseless, infalliable conversion from one type to anther
+    let s = String::from("Hello");
+
+    // when the From is implemented for one type, the Into is automaticalled implemented as the reverse
+    let hello_str: String = "Hello".into();
+
+    println!("s: {s}");
+    println!("hello_str: {hello_str}");
+
+    // Read and BufRead Traits
+    // components you program can read u8 (bytes) from
+    // is has some methods like read_line
+    use std::io::Read;
+
+    // anything that implemetns the Read trait can be read from, and methods like read are available on it
+    // the Read traits allow us to extract bytes from anything that implements it
+
+    // the read method in the Read trait implements how to copy bytes from the source
+    // the implementor the Read trait into an array of bytes called the buffer
+
+    fn count_lines<R: Read>(reader: R) -> usize {
+        let buf_reader = BufReader::new(reader);
+        buf_reader.lines().count()
+    }
+
+    let slice: &[u8] = b"foo\nbar\nbaz\n";
+    let count = count_lines(slice);
+
+    println!("Number of lines: {count}");
 }
