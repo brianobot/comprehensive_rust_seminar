@@ -1,10 +1,9 @@
 #![allow(unused)]
 
-
 #[derive(Debug)]
 struct CarRace {
     name: String,
-    laps: Vec<i32>
+    laps: Vec<i32>,
 }
 
 impl CarRace {
@@ -28,12 +27,14 @@ impl CarRace {
         }
     }
 
-    // exclusive ownership of self 
+    // exclusive ownership of self
     fn finish(self) {
         let total: i32 = self.laps.iter().sum(); // i think it's weird that the compiler cannot infer type of the output of sum 
-        println!("Race {} is finished, Total lap time: {} sec", self.name, total);
+        println!(
+            "Race {} is finished, Total lap time: {} sec",
+            self.name, total
+        );
     }
-
 }
 
 // Methods can also be called on Enums too
@@ -41,7 +42,7 @@ impl CarRace {
 enum MotivationState {
     Motivated,
     Unmotivated,
-    Unbothered
+    Unbothered,
 }
 
 impl MotivationState {
@@ -57,7 +58,6 @@ impl MotivationState {
         Self::Motivated
     }
 }
-
 
 fn main() {
     let mut car_race_1 = CarRace::new("Ibom Grand Prix");
