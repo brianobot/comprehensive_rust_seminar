@@ -10,7 +10,11 @@ struct Node<T: Ord> {
 
 impl<T: Ord> Node<T> {
     fn new(value: T) -> Self {
-        Node{ value, left: Subtree::new(), right: Subtree::new() }
+        Node {
+            value,
+            left: Subtree::new(),
+            right: Subtree::new(),
+        }
     }
 }
 
@@ -42,16 +46,15 @@ impl<T: Ord> Subtree<T> {
                 Ordering::Equal => true,
                 Ordering::Greater => n.right.has(value),
             },
-        } 
+        }
     }
 
     fn len(&self) -> usize {
         match &self.0 {
             None => 0,
-            Some(n) => 1 + n.left.len() + n.right.len()
-        } 
+            Some(n) => 1 + n.left.len() + n.right.len(),
+        }
     }
-
 }
 
 /// A container storing a set of values, using a binary tree.
@@ -64,7 +67,9 @@ pub struct BinaryTree<T: Ord> {
 
 impl<T: Ord> BinaryTree<T> {
     fn new() -> Self {
-        Self { root: Subtree::new() }
+        Self {
+            root: Subtree::new(),
+        }
     }
 
     fn insert(&mut self, value: T) {
@@ -104,8 +109,7 @@ mod tests {
     fn has() {
         let mut tree = BinaryTree::new();
         fn check_has(tree: &BinaryTree<i32>, exp: &[bool]) {
-            let got: Vec<bool> =
-                (0..exp.len()).map(|i| tree.has(&(i as i32))).collect();
+            let got: Vec<bool> = (0..exp.len()).map(|i| tree.has(&(i as i32))).collect();
             assert_eq!(&got, exp);
         }
 

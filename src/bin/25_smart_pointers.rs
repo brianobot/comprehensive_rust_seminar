@@ -15,11 +15,13 @@ fn main() {
 
     #[derive(Debug)]
     struct Truck {
-        next_truck: Option<Box<Truck>>
+        next_truck: Option<Box<Truck>>,
     }
 
-    let first_truck = Truck{ next_truck: Some(Box::new(Truck{ next_truck: None }))};
+    let first_truck = Truck {
+        next_truck: Some(Box::new(Truck { next_truck: None })),
+    };
     dbg!(first_truck);
 
-    // Box can not contain empty/null 
+    // Box can not contain empty/null
 }

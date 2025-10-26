@@ -3,16 +3,16 @@ use std::rc::Rc;
 
 #[derive(Debug)]
 struct Truck {
-    capacity: i32
+    capacity: i32,
 }
 
 fn main() {
     // Reference Counted shared pointer
     // use this when you need to refer to the same data from multple places
 
-    let truck_a = Truck{ capacity: 10 };
-    let truck_b = Truck{ capacity: 20 };
-    let truck_c = Truck{ capacity: 30 };
+    let truck_a = Truck { capacity: 10 };
+    let truck_b = Truck { capacity: 20 };
+    let truck_c = Truck { capacity: 30 };
 
     // let facility_a = vec![truck_a, truck_b];
     // let facility_b = vec![truck_c, truck_b];
@@ -31,7 +31,4 @@ fn main() {
 
     dbg!(facility_a);
     dbg!(facility_b);
-
-
-
 }

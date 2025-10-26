@@ -2,11 +2,11 @@
 
 struct Dog {
     name: String,
-    age: i8
+    age: i8,
 }
 
 struct Cat {
-    lives: i8
+    lives: i8,
 }
 
 trait Pet {
@@ -27,7 +27,6 @@ impl Pet for Cat {
     }
 }
 
-
 fn main() {
     // Trait objects can be used with smart pointers
 
@@ -38,19 +37,31 @@ fn main() {
     // we so have to put that value on the heap and store a pointer to those values
 
     let pets: Vec<Box<dyn Pet>> = vec![
-        Box::new(Dog{ name: String::from("Bruno"), age: 2 }),
-        Box::new(Dog{ name: String::from("Sparks"), age: 3 }),
-        Box::new(Cat{ lives: 3 }),
+        Box::new(Dog {
+            name: String::from("Bruno"),
+            age: 2,
+        }),
+        Box::new(Dog {
+            name: String::from("Sparks"),
+            age: 3,
+        }),
+        Box::new(Cat { lives: 3 }),
     ];
 
     for pet in pets {
         println!("Hello! How are you?, {}", pet.talk());
     }
 
-
-    println!("{} {}", std::mem::size_of::<Dog>(), std::mem::size_of::<Cat>());
-    println!("{} {}", std::mem::size_of::<&Dog>(), std::mem::size_of::<&Cat>());
+    println!(
+        "{} {}",
+        std::mem::size_of::<Dog>(),
+        std::mem::size_of::<Cat>()
+    );
+    println!(
+        "{} {}",
+        std::mem::size_of::<&Dog>(),
+        std::mem::size_of::<&Cat>()
+    );
     println!("{}", std::mem::size_of::<&dyn Pet>());
     println!("{}", std::mem::size_of::<Box<dyn Pet>>());
-
 }
