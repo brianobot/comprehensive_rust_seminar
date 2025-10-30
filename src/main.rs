@@ -29,6 +29,7 @@ fn main() {
     queue.push(52);
     queue.push(62);
 
+
     let old_person = queue.pop();
 
     dbg!(queue, old_person);
