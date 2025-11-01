@@ -1,3 +1,5 @@
+#![allow(dead_code)]
+
 use std::io::Read;
 
 struct RotDecoder<R: Read> {
@@ -52,3 +54,5 @@ mod test {
         }
     }
 }
+
+fn main() {}

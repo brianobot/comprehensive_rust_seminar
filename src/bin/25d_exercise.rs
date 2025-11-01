@@ -1,3 +1,5 @@
+#![allow(dead_code)]
+
 use std::cmp::Ordering;
 
 /// A node in the binary tree.
@@ -134,3 +136,6 @@ mod tests {
         assert!(tree.has(&50));
     }
 }
+
+
+fn main() {}
