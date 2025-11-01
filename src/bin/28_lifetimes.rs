@@ -1,4 +1,4 @@
-#![allow(unused_variables, unused_assignments)]
+#![allow(dead_code, unused_variables, unused_mut, unused_assignments)]
 
 fn main() {
     // in the simplest cases, borrow last for the duration of the function that borrows it
@@ -8,7 +8,6 @@ fn main() {
     borrows(&val);
 
     val += 5; // this is allowed, because at this point, the reference to val has been freed 
-
     // but we can also return references from functions
     let mut x = 43;
     let out = echo(&x);
@@ -37,7 +36,9 @@ fn main() {
     let r = multiple_borrow_fix(&a, &b);
 
     // in this case we can not mutate any of the references until both references are free
-    drop(r); // at this point the reference is freed and both values can be mutated again
+    let _ = drop(r); // at this point the reference is freed and both values can be mutated again
+    // calls to std::mem::drop with a reference instead of an owned value does nothing
+    
 
     a += 1;
     b += 3;

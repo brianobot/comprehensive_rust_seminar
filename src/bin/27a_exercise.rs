@@ -72,3 +72,6 @@ fn test_visit() {
     assert_eq!(report.blood_pressure_change, Some((-5, -4)));
     assert_eq!(report.height_change, 0.0);
 }
+
+
+fn main() {}
