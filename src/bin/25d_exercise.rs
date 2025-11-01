@@ -134,3 +134,6 @@ mod tests {
         assert!(tree.has(&50));
     }
 }
+
+
+fn main() {}
