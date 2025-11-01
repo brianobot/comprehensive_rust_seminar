@@ -1,3 +1,5 @@
+#![allow(dead_code)]
+
 use std::cmp::Ordering;
 
 /// A node in the binary tree.
