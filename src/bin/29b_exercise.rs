@@ -29,3 +29,5 @@ fn test_degenerate_cases() {
     let empty: Vec<i32> = vec![];
     assert_eq!(offset_differences(1, empty), vec![]);
 }
+
+fn main() {}
