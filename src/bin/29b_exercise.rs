@@ -2,9 +2,14 @@
 /// wrapping around from the end of `values` to the beginning.
 ///
 /// Element `n` of the result is `values[(n+offset)%len] - values[n]`.
+#[allow(dead_code)]
 fn offset_differences(offset: usize, values: Vec<i32>) -> Vec<i32> {
     let length = values.len();
-    values.iter().enumerate().map(|(index, _)| values[(index + offset) % length] - values[index]).collect::<Vec<_>>()
+    values
+        .iter()
+        .enumerate()
+        .map(|(index, _)| values[(index + offset) % length] - values[index])
+        .collect::<Vec<_>>()
 }
 
 #[test]
