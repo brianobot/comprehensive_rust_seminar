@@ -47,4 +47,22 @@ fn main() {
     for item in list {
         println!("Item in list: {}", item);
     }
+    
+    let mut some_data = [1, 2, 3, 4, 5];
+    
+    for &item in some_data.iter() {
+        println!("Item from Iter = {:?}", item);
+    }
+    // at this point the some_data array is still valid 
+    
+    for item in some_data.iter_mut() {
+        *item = 3;
+        println!("Item from Iter Mut: {:?}", item);
+    }
+    
+    for item in some_data {
+        println!("Item from Consumed Array = {:?}", item);
+    }
+    
+    // At this POint the Some Data Array is consumed and not valid anymore
 }

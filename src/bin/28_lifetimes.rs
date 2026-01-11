@@ -36,9 +36,9 @@ fn main() {
     let r = multiple_borrow_fix(&a, &b);
 
     // in this case we can not mutate any of the references until both references are free
+    #[allow(dropping_references)]
     let _ = drop(r); // at this point the reference is freed and both values can be mutated again
     // calls to std::mem::drop with a reference instead of an owned value does nothing
-    
 
     a += 1;
     b += 3;

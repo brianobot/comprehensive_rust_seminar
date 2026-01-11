@@ -73,5 +73,4 @@ fn test_visit() {
     assert_eq!(report.height_change, 0.0);
 }
 
-
 fn main() {}
