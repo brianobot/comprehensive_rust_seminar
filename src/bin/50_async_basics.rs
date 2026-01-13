@@ -2,6 +2,13 @@ use futures::executor::block_on;
 use rand::Rng;
 use std::task::Poll;
 
+/// This examples are illustrative, and aren’t an accurate representation of the Rust compiler’s transformation. 
+/// The important things to notice here are:
+
+// - Calling An Async Function does nothing but constructing and returning a Future
+// - Struct fields, or Enums variants can be used to keep track of the future local progress
+// - Unlike Python (Task) and JS(Promises) which are equivalent Future concepts, Futures are lazy, they do not start until they are polled
+
 fn main() {
     // async is a concurrency model where multiple tasks are executed concurrently by executing each task
     // until it would block then switching to another task that is ready to make progress
@@ -93,6 +100,7 @@ impl Future for TwoD10 {
     type Output = u32;
 
     fn poll(mut self: std::pin::Pin<&mut Self>, cx: &mut std::task::Context<'_>) -> std::task::Poll<Self::Output> {
+        // I do not quite understand why a loop was needed here, 
         loop {
             match *self {
                 TwoD10::Init { modifier } => {
